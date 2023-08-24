@@ -1,0 +1,2 @@
+# Avoid committing old data to repo
+old-data/*
