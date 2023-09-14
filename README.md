@@ -12,3 +12,10 @@ This project is very much still in an exploratory phase and all work is done out
 
 **HuggingFace file order**:
 - convert_to_json.ipynb
+
+
+### Related Links
+- https://www.dgidb.org/
+- https://huggingface.co/
+- https://aws.amazon.com/bedrock/titan/
+- https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files
