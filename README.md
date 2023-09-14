@@ -13,6 +13,13 @@ This project is very much still in an exploratory phase and all work is done out
 **HuggingFace file order**:
 - convert_to_json.ipynb
 
+### TO DO  
+*From 9/14/23 NLP Meeting:*
+- [ ] Upload preprocessing for label dataset
+- [ ] Revisit preprocessing steps (white space, TM characters, splits, etc.)
+- [ ] Introduce post-processing (joining ner chunks?)
+- [ ] Create a labeled dataset for evaluation purposes (32 to 100 sentences)
+- [ ] Characterize ADE model for better understanding
 
 ### Related Links
 - https://www.dgidb.org/
