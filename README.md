@@ -10,7 +10,12 @@ The current strategy for creating this pipeline involves utilizing the Huggingfa
 
 This project is very much still in an exploratory phase and all work is done out of ipynb currently. Data files are not included in the repo but can be provided upon request. Any files named 'explore' are almost always a reference scratchpad.
 
-**HuggingFace file order**:
+**File order**:  
+  
+*FDA*  
+- download_json.ipynb
+  
+*HuggingFace*  
 - convert_to_json.ipynb
 
 ### TO DO  
