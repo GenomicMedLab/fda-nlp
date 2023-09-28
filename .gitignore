@@ -1,3 +1,4 @@
 # Avoid committing old data to repo
 old-data/*
 data/*
+Huggingface/scratch/*
