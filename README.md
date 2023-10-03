@@ -16,7 +16,7 @@ This project is very much still in an exploratory phase and all work is done out
 - download_json.ipynb
   
 *HuggingFace*  
-- convert_to_json.ipynb
+- ner_tagging.ipynb
 
 ### TO DO  
 *From 9/14/23 NLP Meeting:*
