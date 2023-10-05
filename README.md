@@ -19,12 +19,16 @@ This project is very much still in an exploratory phase and all work is done out
 - ner_tagging.ipynb
 
 ### TO DO  
+*From 10/5/23 NLP Meeting:*  
+- [ ] Look to see if there is a 'toolbox' function that rejoins chunks
+- [ ] If no toolbox, add in post-processing
+- [ ] Create a labeled dataset for evaluation purposes (32 to 100 sentences)
+  
 *From 9/14/23 NLP Meeting:*
 - [x] Upload preprocessing for label dataset
-- [ ] Revisit preprocessing steps (white space, TM characters, splits, etc.)
 - [x] Introduce post-processing (joining ner chunks?)
-- [ ] Create a labeled dataset for evaluation purposes (32 to 100 sentences)
-- [ ] Characterize ADE model for better understanding
+- [ ] ~~Revisit preprocessing steps (white space, TM characters, splits, etc.)~~
+- [ ] ~~Characterize ADE model for better understanding~~
 
 ### Related Links
 - https://www.dgidb.org/
