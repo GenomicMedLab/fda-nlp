@@ -1,6 +1,7 @@
-# Avoid committing old data to repo
+# Avoid committing big data to repo
 old-data/*
 data/*
+EvalSet/sentences/*
 
 # Scratch work
 Huggingface/scratch/*
