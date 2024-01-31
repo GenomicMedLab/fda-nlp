@@ -10,24 +10,30 @@ The current strategy for creating this pipeline involves utilizing the Huggingfa
 
 This project is very much still in an exploratory phase and all work is done out of ipynb currently. Data files are not included in the repo but can be provided upon request. Any files named 'explore' are almost always a reference scratchpad.
 
-**File order**:  
+### File Description:  
   
-*FDA*  
-- download_json.ipynb
+**FDA**  
+- *download_json.ipynb* --> Download relevant FDA label JSON
   
-*HuggingFace*  
-- ner_tagging.ipynb
+**HuggingFace**  
+- *ner_tagging.ipynb* --> Perform NER tagging, pre and post processing for relevant FDA labels
   
-*EvalSet*
-- select-random.ipynb
-- evaluate.ipynb
+**EvalSet**
+- *select-random.ipynb* --> Select a random subset of data from FDA labels
+- *evaluate.ipynb* --> Align model predicted NER with human labeled data, calculate F1
 
 ### TO DO  
 
+*From 1/31/24 Check-in:*
+- [ ] Create evaluation set for GENETIC and DISEASE
+- [ ] Find way to link back/hook in to DGIdb
+- [ ] QA
+- [ ] Make a figure
+
 *From 10/24/23 Check-in:*  
-- [ ] Look under the hood to calculate a proper PR curve
-- [ ] Evaluate for GENETIC and DISEASE
-- [ ] Look under the hood for proper post-processing
+- [x] Look under the hood to calculate a proper PR curve
+- [x] Look under the hood for proper post-processing
+- [ ] ~~Evaluate for GENETIC and DISEASE~~
 
 *From 10/5/23 NLP Meeting:*  
 - [x] Look to see if there is a 'toolbox' function that rejoins chunks
