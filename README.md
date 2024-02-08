@@ -24,11 +24,16 @@ This project is very much still in an exploratory phase and all work is done out
 
 ### TO DO  
 
-*From 1/31/24 Check-in:*
+*From 2/8/24 NLP Meeting:*
+- [ ] Chunk rejoining strategy for diseases ner to construct an indication description
 - [ ] Create evaluation set for GENETIC and DISEASE
-- [ ] Find way to link back/hook in to DGIdb
-- [ ] QA
-- [ ] Make a figure
+- [ ] Look into QA
+
+*From 1/31/24 Check-in:*
+- [x] Find way to link back/hook in to DGIdb
+- [x] Make a figure
+- [ ] ~~Create evaluation set for GENETIC and DISEASE~~
+- [ ] ~~Look into QA~~
 
 *From 10/24/23 Check-in:*  
 - [x] Look under the hood to calculate a proper PR curve
