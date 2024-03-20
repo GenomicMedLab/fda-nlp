@@ -2,6 +2,7 @@
 old-data/*
 data/*
 EvalSet/sentences/*
+DGIdb/results/*
 
 # Scratch work
 Huggingface/scratch/*
