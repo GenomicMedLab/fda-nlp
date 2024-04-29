@@ -1,5 +1,5 @@
 # huggingface-fda
-
+TODO: Update with recent changes + gpt4all content
 ### About
    
 Even with major updates, as new scientific research is published and new therapeutics are approved by the FDA, there become disparities between computable data sources and the true state of treatment knowledge. In order to improve data parity between computable knowledge and the published state of treatment knowledge, we aim to create tooling that is able to automate (or assist) ingestion of live data sourcing in a scalable manner. Using advanced NLP techniques, we can capture therapeutic data as it becomes available from definitive sources, regulatory approval bodies, and scientific publications. 
