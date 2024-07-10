@@ -76,6 +76,6 @@ def __extract_fda_data(data):
                     build_dict[header] = entry[header][0]
                 except:
                     build_dict[header] = None
-            tdf = pd.concat([tdf,pd.DataFrame.from_dict([build_dict])], axis=0).reset_index(drop=True)
+        tdf = pd.concat([tdf,pd.DataFrame.from_dict([build_dict])], axis=0).reset_index(drop=True)
 
     return(tdf)
