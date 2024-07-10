@@ -50,7 +50,7 @@ def build_fda_database():
         f = open(f'data/drug-label-{number}-of-0012.json','r')
         data = json.load(f)
         fda_df = pd.concat([fda_df,__extract_fda_data(data)],axis=0).reset_index(drop=True)
-    fda_df.to_excel('../data/openfda.xlsx')
+    fda_df.to_excel('openfda.xlsx')
     print('FDA labels sectioned and saved to directory!')
 
 # Extract FDA Data
