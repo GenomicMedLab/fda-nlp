@@ -4,17 +4,17 @@ from tqdm import tqdm
 
 # Build a reference document for all label headers extracted from the full set of 12 FDA dumps
 def build_headers_csv():
-    file_numbers = ['0001','0002','0003','0004','0005','0006','0007','0008','0009','0010','0011','0012'] # TODO: Remove hardcoding of file names
+    file_numbers = [f'{i:04}' for i in range(1, 13)]
     headers = []
     for number in tqdm(file_numbers):
         f = open(f'data/drug-label-{number}-of-0012.json','r')
         data = json.load(f)
-        headers = __extract_headers(data, headers)  
+        headers = _extract_headers(data, headers)  
     headers_df = pd.DataFrame({'headers': headers})
     headers_df['headers'].value_counts().reset_index().to_csv('fda_headers.csv')
     print('FDA label headers reference saved to directory!')
 
-def __extract_headers(data, headers_list):  # Extract all keys across entire document
+def _extract_headers(data, headers_list):  # Extract all keys across entire document
     for entry in data['results']:
         for key in list(entry.keys()):
             headers_list.append(key)    
@@ -43,7 +43,7 @@ HEADERS = ['brand_name',
 
 
 def build_fda_database():
-    file_numbers = ['0001','0002','0003','0004','0005','0006','0007','0008','0009','0010','0011','0012'] # TODO: Remove hardcoding of file names
+    file_numbers = [f'{i:04}' for i in range(1, 13)]
     fda_df = pd.DataFrame(columns=HEADERS)
 
     for number in tqdm(file_numbers):
