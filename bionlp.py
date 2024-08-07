@@ -31,17 +31,19 @@ def normalize(result):
     result['concept_label'] = None
     for index, row in tqdm(result.iterrows()):
         if row['entity_group'] == 'GENETIC':
-            norm_result = __normalize_gene(row['word'])
+            norm_result = _normalize_gene(row['word'])
         if row['entity_group'] == 'CHEMICAL':
-            norm_result = __normalize_therapy(row['word'])
+            norm_result = _normalize_therapy(row['word'])
         if row['entity_group'] == 'DISEASE':
-            norm_result = __normalize_disease(row['word'])
+            norm_result = _normalize_disease(row['word'])
         result.at[index, 'concept_match_type'] = norm_result[0]
         result.at[index, 'concept_id'] = norm_result[1]
         result.at[index, 'concept_label'] = norm_result[2]
     return result
 
-def __normalize_gene(word):
+
+# TODO: Implement cached queries to improve normalization time -- Brian Walsh/ Kori / James
+def _normalize_gene(word):
     r = requests.get(f'https://normalize.cancervariants.org/gene/normalize?q={word}')
     response = r.json()
     if response['match_type'] != 0:
@@ -55,7 +57,7 @@ def __normalize_gene(word):
 
     return [match_type, concept_id, label]
 
-def __normalize_disease(word):
+def _normalize_disease(word):
     r = requests.get(f'https://normalize.cancervariants.org/disease/normalize?q={word}')
     response = r.json()
     if response['match_type'] != 0:
@@ -69,7 +71,7 @@ def __normalize_disease(word):
     
     return [match_type, concept_id, label]
 
-def __normalize_therapy(word):
+def _normalize_therapy(word):
     r = requests.get(f'https://normalize.cancervariants.org/therapy/normalize?q={word}&infer_namespace=true')
     response = r.json()
     if response['match_type'] != 0:
