@@ -4,22 +4,22 @@ import requests
 from tqdm import tqdm
 
 def process_text(text):    
-    tdf1 = __tag_genes(text)
-    tdf2 = __tag_chemicals(text)
-    tdf3 = __tag_diseases(text)
+    tdf1 = _tag_genes(text)
+    tdf2 = _tag_chemicals(text)
+    tdf3 = _tag_diseases(text)
     df = pd.concat([tdf1,tdf2,tdf3])
-    df = __drop_unknowns(df)
+    df = _drop_unknowns(df)
     df = normalize(df)
     return df
 
 def batch(corpus):
     df = pd.DataFrame()
     for entry in corpus:
-        tdf1 = __tag_genes(entry)
-        tdf2 = __tag_chemicals(entry)
-        tdf3 = __tag_diseases(entry)
+        tdf1 = _tag_genes(entry)
+        tdf2 = _tag_chemicals(entry)
+        tdf3 = _tag_diseases(entry)
         df = pd.concat([df,tdf1,tdf2,tdf3])
-    df = __drop_unknowns(df)
+    df = _drop_unknowns(df)
     df['start'] = df['start'].astype(int)
     df['end'] = df['end'].astype(int)
     df = normalize(df)
@@ -86,30 +86,30 @@ def _normalize_therapy(word):
     return [match_type, concept_id, label]
 
 
-def __drop_unknowns(result):
+def _drop_unknowns(result):
     try:
         dropped = result[result['entity_group']!='0'].reset_index(drop=True)
     except:
         dropped = result
     return dropped
 
-def __tag_genes(text):
-    __pipe_gene = pipeline("token-classification", model="alvaroalon2/biobert_genetic_ner",aggregation_strategy="first")
-    gene_results = __pipe_gene(text)
-    df = __drop_unknowns(pd.DataFrame(gene_results))
+def _tag_genes(text):
+    _pipe_gene = pipeline("token-classification", model="alvaroalon2/biobert_genetic_ner",aggregation_strategy="first")
+    gene_results = _pipe_gene(text)
+    df = _drop_unknowns(pd.DataFrame(gene_results))
     df['original_text'] = text
     return df
 
-def __tag_chemicals(text):
-    __pipe_chemical = pipeline("token-classification", model="alvaroalon2/biobert_chemical_ner", aggregation_strategy="first")
-    chem_results = __pipe_chemical(text)
-    df = __drop_unknowns(pd.DataFrame(chem_results))
+def _tag_chemicals(text):
+    _pipe_chemical = pipeline("token-classification", model="alvaroalon2/biobert_chemical_ner", aggregation_strategy="first")
+    chem_results = _pipe_chemical(text)
+    df = _drop_unknowns(pd.DataFrame(chem_results))
     df['original_text'] = text
     return df
 
-def __tag_diseases(text):
-    __pipe_disease = pipeline("token-classification", model="alvaroalon2/biobert_diseases_ner", aggregation_strategy="first")
-    disease_results = __pipe_disease(text)
-    df = __drop_unknowns(pd.DataFrame(disease_results))
+def _tag_diseases(text):
+    _pipe_disease = pipeline("token-classification", model="alvaroalon2/biobert_diseases_ner", aggregation_strategy="first")
+    disease_results = _pipe_disease(text)
+    df = _drop_unknowns(pd.DataFrame(disease_results))
     df['original_text'] = text
     return df
